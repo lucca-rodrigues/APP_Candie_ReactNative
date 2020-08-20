@@ -1,34 +1,21 @@
 import React from 'react';
-import {createAppContainer, createSwitchNavigator} from 'react-navigation';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-//import Home from '../Pages/Home';
-import Login from '../Pages/Login';
-import Register from '../Pages/Register';
-import Profile from '../Pages/Profile';
-import ProfileUsers from '../Pages/ProfileUsers';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack'
+//
+import Home from './src/Pages/Home';
+import Login from '.src/Pages/Login';
 
-const Routes = createAppContainer(
-    createSwitchNavigator(
-      {
-        Home: createSwitchNavigator({
-          Login,
-          Register,
-        }),
-          App: createBottomTabNavigator({
-            Profile,
-            ProfileUsers,
-        },{
-            tabBarOptions: {
-              showLabel: false,
-              activeTintColor : '#fff',
-              style: {
-                backgroundColor: '#1b2c4c'
-              }
-            }
-        })
-      },
-    ),
-  )
+const Stack = createStackNavigator();
 
-export default Routes;
+
+export default function Routes(){
+  return (
+    <NavigationContainer initialRouteName="Home">
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Home}/>
+        <Stack.Screen name="Login" component={Login}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}

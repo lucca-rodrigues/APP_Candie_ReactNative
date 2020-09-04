@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 
-
 export default class CustomInput extends Component {
   render(){
     return (
-      <TextInput style={styles.input}/>
+      <TextInput style={styles.input} placeholder="teste"/>
     )
   }
 }

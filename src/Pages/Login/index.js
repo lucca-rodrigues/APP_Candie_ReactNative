@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
+import CustomInput from '../../Components/CustomInput';
 
 export default function Login({navigation}) {
   const [email, setEmail] = useState('');
@@ -12,19 +13,26 @@ export default function Login({navigation}) {
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Text style={styles.logo}>Candie</Text>
       <Text>Faça o seu login</Text>
-      <TextInput 
-        placeholder="E-mail"
-        onChangeText={email => setEmail(email)}
-        defaultValue={email}
+        <CustomInput
+          type="email"
+          placeholder="E-mail"
+          onChangeText={email => setEmail(email)}
+          defaultValue={email}
         />
-      <TextInput 
+        <CustomInput
+          type="password"
+          placeholder="Senha"
+          onChangeText={password => setPassword(password)}
+          defaultValue={password}
+        />
+      {/* <TextInput
         placeholder="Senha"
         onChangeText={password => setPassword(password)}
         defaultValue={password}
-      />
+      /> */}
       <Button title="Entrar" onPress={login}/>
       <Text
-        style={styles.createAccount} 
+        style={styles.createAccount}
         onPress={() => navigation.navigate('Home')}>
           Não tenho uma conta?
       </Text>
@@ -40,3 +48,5 @@ const styles = StyleSheet.create({
     marginTop: 20
   }
 });
+
+

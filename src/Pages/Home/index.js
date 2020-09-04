@@ -6,7 +6,7 @@ export default function Home({navigation}) {
   return(
     <View>
         <Text>Home Page</Text>
-        <Button 
+        <Button
           title="Ir para tela de Login"
           onPress={() => navigation.navigate('Login')}
         />

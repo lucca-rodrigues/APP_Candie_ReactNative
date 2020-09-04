@@ -21,6 +21,7 @@ export default function Login({navigation}) {
           style={styles.input}
         />
         <TextInput
+          type="password"
           placeholder="Senha"
           onChangeText={password => setPassword(password)}
           defaultValue={password}
@@ -52,7 +53,6 @@ const styles = StyleSheet.create({
     width: 300,
     fontSize: 20,
     marginBottom: 10,
-    color: 'red'
   },
   div: {
     marginTop: 15

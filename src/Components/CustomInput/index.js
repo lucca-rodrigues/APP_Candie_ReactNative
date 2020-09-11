@@ -1,12 +1,10 @@
-import React, {Component} from 'react';
-import { TextInput, StyleSheet } from 'react-native';
+import React, {useState} from 'react';
+import {TextInput, StyleSheet} from 'react-native';
 
-export default class CustomInput extends Component {
-  render(){
-    return (
-      <TextInput style={styles.input} placeholder="teste"/>
-    )
-  }
+function CustomInput({props}) {
+  const [place, setPlace] = useState(props.placeholder);
+
+  return <TextInput style={styles.input} placeholder={place} />;
 }
 
 const styles = StyleSheet.create({
@@ -18,6 +16,8 @@ const styles = StyleSheet.create({
     width: 300,
     fontSize: 20,
     marginBottom: 10,
-    color: 'red'
-  }
+    color: 'red',
+  },
 });
+
+export default CustomInput();
